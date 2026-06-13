@@ -13,7 +13,7 @@ class FinanceManager
         //Yapıcı metot
         FinanceManager();
 
-    void islemEkle(Transaction yeniIslem);
+    void islemEkle(const Transaction& yeniIslem);
     //Private kısmındaki bakiyeyi okuyabilmek için
     double getanaBakiye();
     //tüm işlemleri görebilmek için

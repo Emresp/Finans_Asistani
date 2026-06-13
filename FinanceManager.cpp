@@ -9,7 +9,7 @@ FinanceManager::FinanceManager()
 }
 
 //işlemleri verileri tutucak listenin içine verileri eklemek için
-void FinanceManager::islemEkle(Transaction yeniIslem)
+void FinanceManager::islemEkle(const Transaction& yeniIslem)
 {
     //Listenin sonuna ekleme yapıyor
     islemListesi.push_back(yeniIslem);
