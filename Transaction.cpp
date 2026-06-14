@@ -34,7 +34,7 @@ void Transaction::bilgiyazdir()
     //Bilgilerin hepsinni bir arada düzgün şekilde görebilmek için
     //Son değişkende Ternary operaötürü kullandım (kosul) ? "Doğruysa Çıkacak Sonuç" : "Yanlışsa Çıkacak Sonuç"
     //Beklenen örenk çıktıo formatı: [13.06.2026] Market - Gıda | Tutar: 250 TL | Tip: Gider
-    std::cout<<"["<<getTarih()<<"]"<<" "<<getKategori()<<"|"<<" "<<"Tutar:"<<" "<< getTutar()<<" TL"<<" | "<<"Tip: "<<(getGelirMi() ? "Gelir" : "Gider")<<std::endl;
+    std::cout<<"["<<getTarih()<<"]"<<" "<<getKategori()<<"-"<<getAciklama()<<"|"<<" "<<"Tutar:"<<" "<< getTutar()<<" TL"<<" | "<<"Tip: "<<(getGelirMi() ? "Gelir" : "Gider")<<"\n"<<std::endl;
 }
 
 

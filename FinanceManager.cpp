@@ -1,5 +1,10 @@
 #include "FinanceManager.h"
+
+#include <iostream>
+#include <ostream>
+
 #include "Transaction.h"
+using namespace std;
 
 //Yapıcı metot tanımı.
 //Oluşturlan anabkiye değişkenine listede yer açılıken kendi tipine göre default değert verdik
@@ -27,7 +32,8 @@ void FinanceManager::islemEkle(const Transaction& yeniIslem)
 
 void FinanceManager::gecmisiListele()
 {
-    for (int i=0; i<islemListesi.size(); i++)
+    if (islemListesi.empty()){cout<<"Listede Hiç bir veri bulunmuyor\n\n\n"; return;}
+    for (size_t i=0; i<islemListesi.size(); i++)
     {
         islemListesi[i].bilgiyazdir();
     }

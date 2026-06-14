@@ -7,7 +7,9 @@ using namespace std;
 
 int main()
 {
+    //Konsolu Türkçe Yaptık
     SetConsoleOutputCP(65001);
+    SetConsoleCP(65001);
 
      Menu myMenu;
     myMenu.baslat();
