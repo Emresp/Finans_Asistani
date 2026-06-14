@@ -18,8 +18,11 @@ class FinanceManager
     double getanaBakiye();
     //tüm işlemleri görebilmek için
     void gecmisiListele();
-
+    //Kişinin yaptığı harcamları analiz edip grafiğe dökmek için
     void kategoriAnalizi()const;
+
+    void maxharcama() const;
+    void minharcama() const;
 
 };
 

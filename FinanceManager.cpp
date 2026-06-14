@@ -93,7 +93,7 @@ void FinanceManager::kategoriAnalizi() const
     int maksimumSutunGenisligi = 50;
 
     cout << "\n--- KATEGORI BAZLI HARCAMA ANALIZI ---\n";
-
+    //Grafik çizmek için gerekli olan döngüler
     int marketSutunUzunlugu = static_cast<int>((marketToplam / maxToplam) * maksimumSutunGenisligi);
 
     cout << "Market    : ";
@@ -138,4 +138,68 @@ void FinanceManager::kategoriAnalizi() const
 
     cout << "--------------------------------------\n\n";
 
+}
+
+void FinanceManager::maxharcama() const
+{
+    // Başlangıçta geçerli bir indeks olmadığı için -1 atanıyor.
+    // Döngü sonunda bu değer değişmezse sistemde analiz edilecek bir harcama kaydı bulunmadığı anlaşılır.
+    int maxIndex = -1;
+    double maxTutar = -1.0;
+
+    for (size_t i = 0; i < islemListesi.size(); i++)
+    {
+        // Analiz sadece giderler üzerinden yapılacağı için gelir işlemleri döngüde pas geçiliyor.
+        if (islemListesi[i].getGelirMi() == true) {
+            continue;
+        }
+
+        double anlikTutar = islemListesi[i].getTutar();
+
+        // Okunan tutar, şu ana kadar tespit edilen en yüksek tutardan büyükse yeni maksimum değer ve indeksi güncelleniyor.
+        if (anlikTutar > maxTutar) {
+            maxTutar = anlikTutar;
+            maxIndex = i;
+        }
+    }
+
+    // Arama sonucu yazdırma işlemi. Geçerli bir indeks bulunduysa ilgili objenin detayları ekrana basılır.
+    if (maxIndex != -1) {
+        cout << "\n--- EN YUKSEK HARCAMA SORGUSU ---\n";
+        islemListesi[maxIndex].bilgiyazdir();
+    } else {
+        cout << "Sistemde kayitli hicbir harcama bulunamadi.\n";
+    }
+}
+
+
+void FinanceManager::minharcama() const
+{
+    int minIndex = -1;
+    double minTutar = 0.0;
+
+    for (size_t i = 0; i < islemListesi.size(); i++)
+    {
+        // Yine yalnızca giderlerin taranması için gelirler filtreleniyor.
+        if (islemListesi[i].getGelirMi() == true) {
+            continue;
+        }
+
+        double anlikTutar = islemListesi[i].getTutar();
+
+        // minIndex -1 ise karşılaşılan ilk harcama direkt olarak minimum kabul ediliyor.
+        // Sonraki iterasyonlarda ise mevcut minimumdan daha düşük bir değer gelirse güncelleme yapılıyor.
+        if (minIndex == -1 || anlikTutar < minTutar) {
+            minTutar = anlikTutar;
+            minIndex = i;
+        }
+    }
+
+    // Arama sonucu yazdırma işlemi.
+    if (minIndex != -1) {
+        cout << "\n--- EN DUSUK HARCAMA SORGUSU ---\n";
+        islemListesi[minIndex].bilgiyazdir();
+    } else {
+        cout << "Sistemde kayitli hicbir harcama bulunamadi.\n";
+    }
 }
