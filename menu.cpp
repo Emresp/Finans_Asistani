@@ -79,10 +79,7 @@ void Menu::baslat()
 
             case 2:
             cout << "\n--- GECMIS ISLEMLER GORUNTULENIYOR ---\n";
-
             hesapYoneticisi.gecmisiListele();
-
-
             break;
 
             case 3:
@@ -90,7 +87,32 @@ void Menu::baslat()
             break;
 
             case 4:
+                {
+                    int altSecim;
+                    do {
+                        cout << "\n--- DETAYLI SORGULAMA ---\n";
+                        cout << "1- En Yuksek Harcamayi Bul\n";
+                        cout << "2- En Dusuk Harcamayi Bul\n";
+                        cout << "0- Ana Menuye Don\n";
+                        cout << "Seciminiz: ";
+                        cin >> altSecim;
 
+                        switch (altSecim) {
+                        case 1:
+                            hesapYoneticisi.maxharcama();
+                            break;
+                        case 2:
+                            hesapYoneticisi.minharcama();
+                            break;
+                        case 0:
+                            cout << "Ana menuye donuluyor...\n";
+                            break;
+                        default:
+                            cout << "Gecersiz secim. Lutfen tekrar deneyin.\n";
+                            break;
+                        }
+                    } while (altSecim != 0);
+                }
             break;
 
             default:
