@@ -19,11 +19,11 @@ class Transaction
     Transaction(double tutar, std::string aciklama,std::string tarih,std::string kategori,bool gelirMi);
 
     //Program akışında herhangi bir yerde bu değerleri okumamız gerektiği zaman sadece okumamızı sağlayacak metotlar lazımdır.
-    double getTutar();
-    std::string getAciklama();
-    std::string getTarih();
-    std::string getKategori();
-    bool getGelirMi();
+    double getTutar()const;
+    std::string getAciklama()const;
+    std::string getTarih()const;
+    std::string getKategori()const;
+    bool getGelirMi()const;
 
     //Genel işlem bilgisini yazdırmak için metot
     void bilgiyazdir();

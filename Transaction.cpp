@@ -22,11 +22,11 @@ Transaction::Transaction(double tutar, std::string aciklama, std::string tarih, 
 }
 
 //Private kısmındaki değişkenleri sadece okuyabilmek içinb gerekli metotlar
-double Transaction::getTutar(){return tutar;}
-std::string Transaction::getAciklama(){return aciklama;}
-std::string Transaction::getTarih(){return tarih;}
-std::string Transaction::getKategori(){return kategori;}
-bool Transaction::getGelirMi(){return gelirMi;}
+double Transaction::getTutar()const{return tutar;}
+std::string Transaction::getAciklama()const{return aciklama;}
+std::string Transaction::getTarih()const{return tarih;}
+std::string Transaction::getKategori()const{return kategori;}
+bool Transaction::getGelirMi()const{return gelirMi;}
 
 
 void Transaction::bilgiyazdir()
