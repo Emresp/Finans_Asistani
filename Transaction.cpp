@@ -29,7 +29,7 @@ std::string Transaction::getKategori()const{return kategori;}
 bool Transaction::getGelirMi()const{return gelirMi;}
 
 
-void Transaction::bilgiyazdir()
+void Transaction::bilgiyazdir()const
 {
     //Bilgilerin hepsinni bir arada düzgün şekilde görebilmek için
     //Son değişkende Ternary operaötürü kullandım (kosul) ? "Doğruysa Çıkacak Sonuç" : "Yanlışsa Çıkacak Sonuç"

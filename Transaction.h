@@ -26,7 +26,7 @@ class Transaction
     bool getGelirMi()const;
 
     //Genel işlem bilgisini yazdırmak için metot
-    void bilgiyazdir();
+    void bilgiyazdir()const;
 
 };
 
