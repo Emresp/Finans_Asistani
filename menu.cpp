@@ -86,9 +86,11 @@ void Menu::baslat()
             break;
 
             case 3:
+                hesapYoneticisi.kategoriAnalizi();
             break;
 
             case 4:
+
             break;
 
             default:
