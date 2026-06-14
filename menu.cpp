@@ -72,12 +72,17 @@ void Menu::baslat()
                     //kullanıcının yaptığı işlemleri tutabilmemiz için işlemler sınıfı altında kullanıcın girdiği değerlieri vererek yeni nesne oluşturduk
                     Transaction yeniIslem(tutar,aciklama,"14.06.2026",kategori,gelirMi);
                     hesapYoneticisi.islemEkle(yeniIslem);
-                    cout<<"İşlem Başarıyla Eklendii";
+                    cout<<"İşlem Başarıyla Eklendii\n\n";
                 }
 
             break;
 
             case 2:
+            cout << "\n--- GECMIS ISLEMLER GORUNTULENIYOR ---\n";
+
+            hesapYoneticisi.gecmisiListele();
+
+
             break;
 
             case 3:
