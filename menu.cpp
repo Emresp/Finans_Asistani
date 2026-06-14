@@ -13,6 +13,7 @@ void Menu::baslat()
         cout <<"3-) Kategori Bazlı Harcama Analizi \n";
         cout <<"4-) Geçmişe Dönük Arama / Filtreleme\n";
         cout <<"0-)Kaydet Çık \n";
+        cout<<"Seçim:";
         cin >> secim;
 
 
@@ -39,11 +40,12 @@ void Menu::baslat()
                         cin.clear();
                         cin.ignore(1000, '\n');
                         cout<<"Geçerli Bir Kategori Seçimi Yapın\n";
-                        cout<<"1-Market\n)";
+                        cout<<"1-Market\n";
                         cout<<"2-Teknoloji\n";
                         cout<<"3-Ulaşım\n";
                         cout<<"4-Eğlence\n";
                         cout<<"5-Diğer\n";
+                        cout<<"Kategori Seçimi:";
                         cin>>katsecim;
                         switch (katsecim)
                         {
@@ -85,7 +87,7 @@ void Menu::baslat()
             break;
 
             default:
-            cout<<"Lütfen Geçerli Bir Seçim Yapın";
+            cout<<"Lütfen Geçerli Bir Seçim Yapın\n";
             break;
         }
 
