@@ -7,4 +7,6 @@ add_executable(Finans_Asistani main.cpp
         Transaction.cpp
         Transaction.h
         FinanceManager.cpp
-        FinanceManager.h)
+        FinanceManager.h
+        menu.cpp
+        menu.h)
