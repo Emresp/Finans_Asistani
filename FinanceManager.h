@@ -19,6 +19,8 @@ class FinanceManager
     //tüm işlemleri görebilmek için
     void gecmisiListele();
 
+    void kategoriAnalizi()const;
+
 };
 
 #endif //FINANS_ASISTANI_FINANCEMANAGER_H
