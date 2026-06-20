@@ -10,3 +10,4 @@ add_executable(Finans_Asistani main.cpp
         FinanceManager.h
         menu.cpp
         menu.h)
+set(CMAKE_EXE_LINKER_FLAGS "-static")
