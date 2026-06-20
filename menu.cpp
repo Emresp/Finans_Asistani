@@ -4,6 +4,18 @@ using namespace std;
 
 void Menu::baslat()
 {
+    string kullaniciAdi;
+
+    cout << "======================================\n";
+    cout << "   Kisisel Finans Asistanina Hos Geldiniz\n";
+    cout << "======================================\n";
+    cout << "Lutfen kullanici adinizi giriniz: ";
+    cin >> kullaniciAdi;
+
+    hesapYoneticisi.setAktifKullanici(kullaniciAdi);
+
+    hesapYoneticisi.dosyadanYukle();
+
     int secim=-1;
 
     while (secim !=0)
@@ -72,6 +84,7 @@ void Menu::baslat()
                     //kullanıcının yaptığı işlemleri tutabilmemiz için işlemler sınıfı altında kullanıcın girdiği değerlieri vererek yeni nesne oluşturduk
                     Transaction yeniIslem(tutar,aciklama,"14.06.2026",kategori,gelirMi);
                     hesapYoneticisi.islemEkle(yeniIslem);
+                    hesapYoneticisi.dosyayakaydet();
                     cout<<"İşlem Başarıyla Eklendii\n\n";
                 }
 

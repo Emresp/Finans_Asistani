@@ -3,6 +3,7 @@
 
 #include "FinanceManager.h"
 
+
 class Menu
 {
     private:
