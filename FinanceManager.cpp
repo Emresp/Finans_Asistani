@@ -1,7 +1,8 @@
 #include "FinanceManager.h"
-
 #include <iostream>
 #include <algorithm>
+#include <fstream>
+#include <sstream>
 
 
 #include "Transaction.h"
@@ -12,6 +13,12 @@ using namespace std;
 FinanceManager::FinanceManager()
 {
     anaBakiye = 0;
+}
+
+void FinanceManager::setAktifKullanici(const string& isim)
+{
+    // Arayüzden gelen ismi, sınıfın kalıcı hafızasına kaydediyorum.
+    aktifKullanici = isim;
 }
 
 //işlemleri verileri tutucak listenin içine verileri eklemek için
@@ -202,4 +209,67 @@ void FinanceManager::minharcama() const
     } else {
         cout << "Sistemde kayitli hicbir harcama bulunamadi.\n";
     }
+}
+
+
+void FinanceManager::dosyayakaydet() const
+{
+
+    string dosyaAdi = aktifKullanici + "_islemler.txt";
+
+    ofstream dosya(dosyaAdi);
+
+    if (!dosya.is_open())
+    {
+        cout << "HATA: VERİLER KAYIT EDİLEMİYOR, DOSYA AÇILAMADI\n";
+        return;
+    }
+
+    for (size_t i = 0; i < islemListesi.size(); i++)
+    {
+        dosya<<islemListesi[i].getTutar()<<","
+        <<islemListesi[i].getKategori()<<","
+        <<islemListesi[i].getAciklama()<<","
+        <<islemListesi[i].getTarih()<<","
+        <<islemListesi[i].getGelirMi()<<"\n"
+        ;
+    }
+    dosya.close();
+}
+void FinanceManager::dosyadanYukle()
+{
+    string dosyaAdi=aktifKullanici + "_islemler.txt";
+
+    ifstream dosya(dosyaAdi);
+
+    if (!dosya.is_open())
+    {
+        cout<<"Bu isimde bir kullanıcı bulunamadı yeni kayıt açılıyor\n";
+        return;
+    }
+    string text;
+
+    while (getline(dosya, text))
+    {
+        if (text.empty()) {
+            continue;
+        }
+        stringstream ss(text);
+
+        string strTutar, geciciKategori, geciciAciklama, geciciTarih, strGelirMi;
+
+        getline(ss, strTutar, ',');
+        getline(ss, geciciKategori, ',');
+        getline(ss, geciciAciklama, ',');
+        getline(ss, geciciTarih, ',');
+        getline(ss, strGelirMi, '\n');
+
+        double gercekTutar = stod(strTutar);
+
+        bool gercekGelirMi = (strGelirMi == "1");
+
+        Transaction gecmisIslem(gercekTutar, geciciAciklama, geciciTarih, geciciKategori, gercekGelirMi);
+        islemListesi.push_back(gecmisIslem);
+    }
+    dosya.close();
 }

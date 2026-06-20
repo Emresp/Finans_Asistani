@@ -2,12 +2,14 @@
 #define FINANS_ASISTANI_FINANCEMANAGER_H
 #include <vector>
 #include "Transaction.h"
-
+#include <string>
 class FinanceManager
 {
     private:
         std::vector<Transaction> islemListesi;
         double anaBakiye;
+        std::string aktifKullanici;
+
 
     public:
         //Yapıcı metot
@@ -23,6 +25,13 @@ class FinanceManager
 
     void maxharcama() const;
     void minharcama() const;
+
+    void dosyayakaydet()const;
+
+    void dosyadanYukle();
+
+    void setAktifKullanici(const std::string& isim);
+
 
 };
 
